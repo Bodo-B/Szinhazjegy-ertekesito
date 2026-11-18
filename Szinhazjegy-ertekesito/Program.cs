@@ -7,6 +7,25 @@ namespace Program
 {
     internal class Program
     {
+        static void Kiir(List<object> sor)
+        {
+            int i = 0;
+
+            for (int szam = 1; szam <= 20; szam++)
+            {
+                if (i < sor.Count && Convert.ToInt16(sor[i]) == szam)
+                {
+                    Console.Write($"{sor[i],4}");
+                    i++;
+                }
+                else
+                {
+                    Console.Write($"{"X",4}");
+                }
+            }
+
+            Console.WriteLine();
+        }
         static void Main(string[] args)
         {
             Random rnd = new Random();
@@ -33,7 +52,7 @@ namespace Program
             List<object> foglalt_sor_kilenc = new List<object> { };
             List<object> foglalt_sor_tiz = new List<object> { };
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 6; i++)
             {
                 int hely = rnd.Next(sor_egy.Count);
                 foglalt_sor_egy.Add(sor_egy[hely]);
@@ -76,16 +95,29 @@ namespace Program
                 sor_tiz.Remove(sor_tiz[hely]);
             }
             Console.WriteLine("A foglalt helyek 'X'-el lesznek jelölve.");
-            for (int i = 0; i < sor_egy.Count; i++)
-            {
-                if (Convert.ToInt16(sor_egy[i]) == i + 1)
-                {
-                    Console.Write(sor_egy[i] + " ");
-                }
-                else
-                    Console.Write("X ");
-                }
-            }
-            
+
+            Console.Write("1. Sor  | ");
+            Kiir(sor_egy);
+            Console.Write("2. Sor  | ");
+            Kiir(sor_ketto);
+            Console.Write("3. Sor  | ");
+            Kiir(sor_harom);
+            Console.Write("4. Sor  | ");
+            Kiir(sor_negy);
+            Console.Write("5. Sor  | ");
+            Kiir(sor_ot);
+            Console.Write("6. Sor  | ");
+            Kiir(sor_hat);
+            Console.Write("7. Sor  | ");
+            Kiir(sor_het);
+            Console.Write("8. Sor  | ");
+            Kiir(sor_nyolc);
+            Console.Write("9. Sor  | ");
+            Kiir(sor_kilenc);
+            Console.Write("10. Sor | ");
+            Kiir(sor_tiz);
+
         }
+            
     }
+}
