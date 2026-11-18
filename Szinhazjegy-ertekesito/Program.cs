@@ -10,22 +10,50 @@ namespace Program
         static void Kiir(List<object> sor)
         {
             int i = 0;
-
             for (int szam = 1; szam <= 20; szam++)
             {
                 if (i < sor.Count && Convert.ToInt16(sor[i]) == szam)
                 {
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.Write($"{sor[i],4}");
                     i++;
                 }
                 else
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.Write($"{"X",4}");
                 }
             }
-
             Console.WriteLine();
         }
+        
+        static void HelyValasztas(int valasztas_sor, int valasztas_hely, List<object> sor_egy, List<object> sor_ketto, List<object> sor_harom, List<object> sor_negy, List<object> sor_ot, List<object> sor_hat, List<object> sot_het, List<object> sor_nyolc, List<object> sor_kilenc, List<object> sor_tiz) 
+        {
+            if (valasztas_sor==1)
+            {
+                foreach (int i in sor_egy)
+                {
+                    if (valasztas_sor == Convert.ToInt16(sor_egy[i]))
+                    {
+                        
+                    }
+                    else
+                    {
+                        Console.WriteLine("A hely már foglalt! ");
+                        System.Threading.Thread.Sleep(1000);
+                        break;
+                    }
+                }
+            }
+            else if (valasztas_sor==2)
+            {
+
+            }
+        }
+
+
+
+
         static void Main(string[] args)
         {
             Random rnd = new Random();
@@ -94,30 +122,57 @@ namespace Program
                 foglalt_sor_tiz.Add(sor_tiz[hely]);
                 sor_tiz.Remove(sor_tiz[hely]);
             }
-            Console.WriteLine("A foglalt helyek 'X'-el lesznek jelölve.");
 
-            Console.Write("1. Sor  | ");
-            Kiir(sor_egy);
-            Console.Write("2. Sor  | ");
-            Kiir(sor_ketto);
-            Console.Write("3. Sor  | ");
-            Kiir(sor_harom);
-            Console.Write("4. Sor  | ");
-            Kiir(sor_negy);
-            Console.Write("5. Sor  | ");
-            Kiir(sor_ot);
-            Console.Write("6. Sor  | ");
-            Kiir(sor_hat);
-            Console.Write("7. Sor  | ");
-            Kiir(sor_het);
-            Console.Write("8. Sor  | ");
-            Kiir(sor_nyolc);
-            Console.Write("9. Sor  | ");
-            Kiir(sor_kilenc);
-            Console.Write("10. Sor | ");
-            Kiir(sor_tiz);
+            while (true)
+            {
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Színházi jegyválasztó");
+                Console.WriteLine("A már foglalt helyek 'X'-el lesznek jelölve, a saját jegyei kékkel");
 
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("1. Sor  | ");
+                Kiir(sor_egy);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("2. Sor  | ");
+                Kiir(sor_ketto);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("3. Sor  | ");
+                Kiir(sor_harom);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("4. Sor  | ");
+                Kiir(sor_negy);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("5. Sor  | ");
+                Kiir(sor_ot);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("6. Sor  | ");
+                Kiir(sor_hat);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("7. Sor  | ");
+                Kiir(sor_het);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("8. Sor  | ");
+                Kiir(sor_nyolc);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("9. Sor  | ");
+                Kiir(sor_kilenc);
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("10. Sor | ");
+                Kiir(sor_tiz);
+    
+                Console.ForegroundColor = ConsoleColor.White;
+                Console.WriteLine("Kiválasztja a helyét (1), vagy véletlenszerûen választ (2) ?");
+                Console.Write("Választás: ");
+                int valasztas = Convert.ToInt16(Console.ReadLine());
+                if (valasztas == 1)
+                {
+                    Console.Write("Melyik sor? ");
+                    int valasztas_sor = Convert.ToInt16((Console.ReadLine()));
+                    Console.Write("Hanyadik hely? ");
+                    int valasztas_hely = Convert.ToInt16((Console.ReadLine()));
+                
+                }
+            }
         }
-            
     }
 }
